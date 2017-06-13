@@ -91,3 +91,31 @@ public class RegisterService {
 		return status;
 	}
 }
+
+
+//if JSON data is coming it can be set and get in a way like
+public class Data {
+	
+	private String firstname;
+	private String lastname;
+	
+	public String getfirstname()
+	{
+		return this.firstname;
+	}
+	
+	public void setfirstname(String name)
+	{
+		this.firstname = name;
+	}
+	
+	public String getlastname()
+	{
+		return this.lastname;
+	}
+	
+	public void setlastname(String name)
+	{
+		this.lastname = name;
+	}
+}
