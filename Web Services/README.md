@@ -1,6 +1,6 @@
 RESTful web services in Java in Eclipse
 
-create folders inside src\main\java\org\Locks\aws\APP directory
+create packages inside src\main\java\org\Locks\aws\APP package
 1. resources
 2. services
 
@@ -93,7 +93,8 @@ public class RegisterService {
 }
 
 
-//if JSON data is coming it can be set and get in a way like
+//if JSON data is coming it can be set and get in a way like inside a Java class in some package
+
 public class Data {
 	
 	private String firstname;
