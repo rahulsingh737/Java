@@ -1,0 +1,24 @@
+
+
+URL url = new URL("https://jsdkjsbakkdnsfnldnsndlk.jdhvdfdz.com");
+			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+			conn.setRequestMethod("GET");
+			conn.setRequestProperty("Authorization", "Bearer sjfbweiszxfcnwsjnfcnwsnfoo");
+
+			if (conn.getResponseCode() != 200) {
+				throw new RuntimeException("Failed : HTTP error code : "
+						+ conn.getResponseCode());
+			}
+
+			BufferedReader br = new BufferedReader(new InputStreamReader(
+				(conn.getInputStream())));
+
+			
+			//System.out.println("Output from Server .... \n");
+			String str;
+			while ((str = br.readLine()) != null) {
+				//System.out.println(output);
+				output+=str;
+			}
+		
+			conn.disconnect();
