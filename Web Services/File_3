@@ -1,0 +1,62 @@
+JDBC connection
+
+try {
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection con = DriverManager.getConnection(host,user,pass);
+			System.out.println("Worked");
+		} catch (ClassNotFoundException e) {
+  			System.out.println("Error in connection:"+e.getMessage());
+	  		return "error";
+		}
+    
+    
+SEARCH
+    
+        String query = "select * from TABLE";
+        Statement st = con.createStatement();
+	 			ResultSet rs = st.executeQuery(query);
+				
+				while(rs.next())
+				{
+					ans = "fname:"+rs.getString(1);
+					ans = ans + ",lname:"+rs.getString(2);
+					ans = ans + ",phone:"+rs.getString(5);
+					ans = ans + ",code:"+rs.getString(6);
+				}
+				con.close();
+        
+    
+INSERT
+
+      String sql = "INSERT INTO TABLE "+"VALUES ('"+a+"','"+b+"','"+c+"','"+d+"','"+e+"','"+f+"','"+g+"')";
+			stmt.executeUpdate(sql);
+      
+      
+UPDATE
+
+      String sql = "update TABLE " +
+	                   "set fname='"+a+"',lname='"+b+"',phone='"+c+"',code='"+d+"' where email='"+email+"' and location='"+location+"'";
+			st.executeUpdate(sql);
+      
+      
+TRUNCATE
+
+      int result = st.executeUpdate("TRUNCATE " + "endpoints");
+      
+      
+Multiple INSERT using PreparedStatement
+
+      con.setAutoCommit(false);  
+			String query = "INSERT INTO TABLE" + "(location,uri) VALUES" + "(?,?)";
+			
+			
+			PreparedStatement ps = con.prepareStatement(query);            
+			for ( String key : urls.keySet() )
+			{    
+				ps.setString(1,key);
+				ps.setString(2,urls.get(key));
+				ps.addBatch();
+			}
+			ps.executeBatch();
+			con.commit(); 
+			con.close();
